@@ -1,23 +1,16 @@
-import {
-  AutoIncrement,
-  Column,
-  Model,
-  PrimaryKey,
-  Table
-  } from 'sequelize-typescript'
+import * as Sequelize from 'sequelize'
 
-@Table({
-  timestamps: true
-})
-export default class User extends Model<User> {
-  @PrimaryKey
-  @AutoIncrement
-  @Column
-  id: number
-
-  @Column
+interface UserAttributes {
+  id: string
   userName: string
+  createdAt: Date
+  updatedAt: Date
+}
 
-  @Column
-  email: string
+export default (sequalize: Sequelize.Sequelize) => {
+  const UserSchema = {
+    id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
+    userName: { type: Sequelize.STRING, allowNull: false }
+  }
+  return sequalize.define('User', UserSchema)
 }

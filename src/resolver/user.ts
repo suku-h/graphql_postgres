@@ -1,18 +1,18 @@
 export const UserResolver = {
   Query: {
-    getUser: (parent, { username }, { models }) => models.User.findOne({
+    getUser: (parent, { userName }, { db }) => db.User.findOne({
       where: {
-        username
+        userName
       }
     }),
 
-    allUsers: async (parent, args, { models }) => models.User.findAll()
+    allUsers: async (parent, args, { db }) => db.User.findAll()
   },
 
   Mutation: {
-    createUser: (parent, args, { models }) => models.User.create(args),
-    updateUser: (parent, args, { models }) => models.User.update(args),
-    deleteUser: (parent, args, { models }) => models.User.destroy({
+    createUser: (parent, args, { db }) => db.User.create(args),
+    updateUser: (parent, args, { db }) => db.User.update(args),
+    deleteUser: (parent, args, { db }) => db.User.destroy({
       where: args
     }),
   }
