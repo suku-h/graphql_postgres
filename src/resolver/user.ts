@@ -6,12 +6,7 @@ export const UserResolver = {
       }
     }),
 
-    allUsers: async (parent, args, { models }) => {
-      console.log('models', models)
-      console.log('*************************************************')
-      console.log('models.models.User, models.User', models.models.User, models.user)
-      return await models.user.findAll()
-    }
+    allUsers: async (parent, args, { models }) => models.User.findAll()
   },
 
   Mutation: {
