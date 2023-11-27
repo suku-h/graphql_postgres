@@ -18,7 +18,7 @@
   "author": "Sukumar Honkote",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^2.0.6",
+    "apollo-server-express": "^3.0.0",
     "express": "^4.16.3",
     "graphql": "^14.0.2",
     "pg": "^7.4.3",
